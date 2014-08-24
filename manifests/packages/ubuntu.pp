@@ -9,4 +9,11 @@ class latex::packages::ubuntu {
     'texlive-fonts-recommended':;
     'texlive-latex-extra':
   }
+
+  file { '/usr/share/texmf-texlive/tex/latex/moderncv':
+    source  => 'puppet:///modules/latex',
+    path    => '/usr/share/texmf-texlive/tex/latex/moderncv',
+    recurse => true,
+  }
 }
+
