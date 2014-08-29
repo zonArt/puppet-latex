@@ -13,17 +13,24 @@
 #
 # === Authors
 #
-# LStuker <lucien.stuker@gmail.com>
+# zonArt <Nicko Glayre>
 #
 # === Copyright
 #
-# Copyright 2013 Lucien Stuker.
+# Copyright 2014 Nicko Glayre.
 #
 class latex {
-  # Install Packages
-  case $osfamily {
-    debian: { require latex::packages::ubuntu }
-    redhat: { require latex::packages::centos }
-    suse:   { require latex::packages::suse }
+
+  Package {
+    ensure => installed,
+  }
+
+  package {
+    'texlive-latex-base':;
+    'texlive-fonts-recommended':;
+    'texlive-latex-extra':;
+  } -> file { '/usr/share/texlive/texmf-dist/tex/latex/moderncv':
+    source  => 'puppet:///modules/latex/moderncv',
+    recurse => true,
   }
 }

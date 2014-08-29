@@ -12,6 +12,9 @@ class { 'latex': }
 
 zonArt
 
+## Credits
+
+All files in the files/moderncv/examples folder are coming from the moderncv package (which can be found on http://www.ctan.org/pkg/moderncv)
 
 ## Support
 
