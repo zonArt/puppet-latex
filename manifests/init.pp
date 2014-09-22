@@ -25,12 +25,19 @@ class latex {
     ensure => installed,
   }
 
+  $texmfHome = '/home/vagrant/texmf'
+
   package {
     'texlive-latex-base':;
     'texlive-fonts-recommended':;
+    'texlive-fonts-extra':;
     'texlive-latex-extra':;
-  } -> file { '/usr/share/texlive/texmf-dist/tex/latex/moderncv':
+    'texlive-xetex':;
+  } -> file { [ "${texmfHome}", "${texmfHome}/tex", "${texmfHome}/tex/latex"]:
+    ensure => directory,
+  } -> file { "${texmfHome}/tex/latex/local":
     source  => 'puppet:///modules/latex/moderncv',
     recurse => true,
+    purge   => true,
   }
 }
