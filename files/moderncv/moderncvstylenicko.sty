@@ -255,7 +255,7 @@
   % recipient block
   \hfill%
   \begin{minipage}{.5\textwidth}
-    \raggedright%
+    \raggedleft%
     \addressfont%
     {\bfseries\upshape\@recipientname}\\%
     \@recipientaddress%
@@ -264,7 +264,7 @@
   % sender contact info
   \hfill%
   \begin{minipage}[t]{.5\textwidth}%
-    \raggedleft%
+    \raggedright%
     \addressfont\textcolor{color2}{%
       {\bfseries\upshape\@firstname~\@lastname}\@firstdetailselementfalse%
       \ifthenelse{\isundefined{\@addressstreet}}{}{\makenewline\addresssymbol\@addressstreet%
@@ -276,7 +276,7 @@
 %  \\[1em]% UK style
   \@date\\[2em]% US informal style: "January 1, 1900"; UK formal style: "01/01/1900"
   % opening
-  \raggedright%
+  % try to got full justification \raggedright%
   \@opening\\[1.5em]%
   % ensure no extra spacing after \makelettertitle due to a possible blank line
 %  \ignorespacesafterend% not working
